@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <body>
+      <div class="container1" style="width: 100%;">
+        <div class="left">
+          <img src="./undraw_secure_login_pdn4.svg" style="width: 100%;" />
+        </div>
+        <div class="right">
+          <div class="limiter">
+            <div class="container-login100">
+              <div class="wrap-login100">
+                <form class="login100-form validate-form">
+                  <div class="login100-form-title">
+                    Login 
+                  <div class="login100-form-description">
+                    You can login here.
+                    <div style="text-align: left; margin-top: 2%;">
+                      <form
+                        class="center"
+                        *ngIf="!isLoggedIn"
+                        name="form"
+                        (ngSubmit)="f.form.valid && onSubmit()"
+                        #f="ngForm"
+                        novalidate
+                      >
+                        <div class="form-group">
+                          <input
+                            aria-label="Large"
+                            type="login"
+                            class="form-control"
+                            name="login"
+                            [(ngModel)]="form.login"
+                            required
+                            login
+                            #login="ngModel"
+                            placeholder="login ..."
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            placeholder="Password ..."
+                            type="password"
+                            class="form-control"
+                            name="password"
+                            [(ngModel)]="form.password"
+                            required
+                            minlength="6"
+                            #password="ngModel"
+                          />
+                          <div
+                            class="alert alert-danger"
+                            role="alert"
+                            *ngIf="password.errors && f.submitted"
+                          >
+                            <div *ngIf="password.errors.required">
+                              Password is required
+                            </div>
+                            <div *ngIf="password.errors.minlength">
+                              Password must be at least 6 characters
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn dream-btn restyle">
+                          Login
+                        </button>
+
+                        <small id="passwordreset" class="form-text">
+                          <p>
+                            Don't Have an Account?
+                            <a href="/user/register">Signup Now</a>
+                          </p>
+                          <a
+                            style="
+                              cursor: pointer;
+                              justify-self: end;
+                              color: #666666;
+                            "
+                            >Forget Password ?</a
+                          >
+                        </small>
+                        <div class="form-group">
+                          <div
+                            class="alert alert-danger"
+                            role="alert"
+                            *ngIf="f.submitted && isLoginFailed"
+                          >
+                            Login failed: {{ errorMessage }}
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <!-- <div style="padding-left:10%;padding-right: 10%;margin-top: 5%;">
+                                <router-outlet></router-outlet>
+                            </div> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </body>
+</html>
